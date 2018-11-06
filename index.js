@@ -1,9 +1,11 @@
 import React from 'react'
 import { render } from 'react-dom'
 
+// data 
+import data from './src/api.json';
 //components
-import Media from "./src/playlist/components/media";
+import PlayList from "./src/playlist/components/playList.js";
 
 const app = document.getElementById("app")
 
-render(<Media />,app)
+render(<PlayList data={data} />,app)

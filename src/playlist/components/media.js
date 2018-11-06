@@ -1,24 +1,49 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types';
+import './media.css';
 
+class Media extends PureComponent {
+    state = {  // es7
+        // author : "Carlos"
+    }
+    // constructor(props){
+    //     super(props)
+    //     this.state={
+    //         author: props.author
+    //     }
+    // }
 
-class Media extends Component {
-  render() {
-    return (
-      <div>
-        <div>
-            <img 
-                src="" 
-                alt="" 
-                srcset=""
-                width = {260}
-                height = {160}
-            />
-            <h3>Aprende React!</h3>
-            <p>Carlos csz</p>
-        </div>
-      </div>
-    )
-  }
+    handleClick = (e) => {
+        this.setState({
+            author : "carlitos"
+        })
+    }
+
+    render() {
+        const { cover, title, author } = this.props.item
+        return (
+            <div className="Media" onClick={this.handleClick}>
+                <div className="Media-cover">
+                    <img 
+                        src= {cover} 
+                        alt="" 
+                        width = {240}
+                        height = {160}
+                        className = "Media-image"
+                    />
+                    <h3 className="Media-title"> {title} </h3>
+                    <p className="Media-author"> {author} </p>
+                </div>
+            </div>
+        )
+    }
+}
+
+Media.propTypes = {
+    cover : PropTypes.string,
+    title: PropTypes.string.isRequired,
+    author:PropTypes.string,
+    type : PropTypes.oneOf(['video','audio']) // valida lo que esta llegando
 }
 
 export default Media;
