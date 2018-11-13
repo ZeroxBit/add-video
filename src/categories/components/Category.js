@@ -1,11 +1,12 @@
 import React from 'react'
 import PlayList from '../../playlist/components/PlayList'
+import './Category.css'
 
 const Category = (props) => {
     return (
-        <div>
-            <h2>{props.title}</h2>
-            <p>{props.description}</p>
+        <div className="Category">
+            <h2 className="Category-title">{props.title}</h2>
+            <p className="Category-description">{props.description}</p>
             
             <PlayList 
                 playList={props.playlist}

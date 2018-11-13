@@ -7,6 +7,6 @@ import data from '../api.json';
 //import PlayList from "./src/playlist/components/playList.js";
 import Home from '../pages/containers/Home'
 
-const app = document.getElementById("app")
+const home = document.getElementById("home-container")
 
-render(<Home data={data}/>,app)
+render(<Home data={data}/>,home)
