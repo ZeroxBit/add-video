@@ -4,6 +4,7 @@ import Categories from '../../categories/components/Categories';
 import Related from '../components/Related';
 import ModalContainer from '../../widgets/containers/ModalContainer';
 import Modal from '../../widgets/components/Modal';
+import HandleError from '../../errors/containers/HandleError'
 
 export class Home extends Component {
 
@@ -23,23 +24,25 @@ export class Home extends Component {
 
 	render() {
 		return (
-			<HomeLayout>
-				<Related />
-				<Categories 
-					categories={this.props.data.categories}
-					handleOpenModal = {this.handleOpenModal}
-				/>
-				{
-					this.state.modalVisible &&
-						<ModalContainer>
-							<Modal
-								handleClose={this.handleCloseModal}
-							>
-								<h1>Modalll</h1>
-							</Modal>
-						</ModalContainer>
-				}
-			</HomeLayout>
+			<HandleError>
+				<HomeLayout>
+					<Related />
+					<Categories 
+						categories={this.props.data.categories}
+						handleOpenModal = {this.handleOpenModal}
+					/>
+					{
+						this.state.modalVisible &&
+							<ModalContainer>
+								<Modal
+									handleClose={this.handleCloseModal}
+								>
+									<h1>Modalll</h1>
+								</Modal>
+							</ModalContainer>
+					}
+				</HomeLayout>
+			</HandleError>
 		)
 	}
 }
